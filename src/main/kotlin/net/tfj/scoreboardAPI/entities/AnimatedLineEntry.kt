@@ -1,7 +1,7 @@
-package net.verix.main.custom.scoreboard.entities
+package net.tfj.scoreboardAPI.entities
 
 import net.kyori.adventure.text.Component
-import net.verix.main.stuff.Messenger
+import net.tfj.scoreboardAPI.ScoreboardAPI
 import org.bukkit.entity.Player
 
 // Line: Animated
@@ -15,7 +15,7 @@ data class AnimatedLineEntry(
     override fun getText(player: Player): Component {
         if (frames.isEmpty()) return Component.empty()
         val index = (tick / interval) % frames.size
-        return Messenger.format(frames[index.toInt()](player))
+        return ScoreboardAPI.instance.miniMessage.deserialize(frames[index.toInt()](player))
     }
 
     // Updates when update interval reached

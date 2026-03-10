@@ -1,4 +1,4 @@
-package net.verix.main.custom.scoreboard.entities
+package net.tfj.scoreboardAPI.entities
 
 import io.papermc.paper.scoreboard.numbers.NumberFormat
 

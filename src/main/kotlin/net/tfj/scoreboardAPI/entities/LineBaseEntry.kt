@@ -1,4 +1,4 @@
-package net.verix.main.custom.scoreboard.entities
+package net.tfj.scoreboardAPI.entities
 
 import net.kyori.adventure.text.Component
 import org.bukkit.entity.Player

@@ -3,11 +3,11 @@ package net.tfj.scoreboardAPI
 import io.papermc.paper.scoreboard.numbers.NumberFormat
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.Style
-import net.verix.main.custom.scoreboard.entities.AnimatedLineEntry
-import net.verix.main.custom.scoreboard.entities.DataLineEntry
-import net.verix.main.custom.scoreboard.entities.EmptyLine
-import net.verix.main.custom.scoreboard.entities.ScoreboardData
-import net.verix.main.custom.scoreboard.entities.StaticLineEntry
+import net.tfj.scoreboardAPI.entities.AnimatedLineEntry
+import net.tfj.scoreboardAPI.entities.DataLineEntry
+import net.tfj.scoreboardAPI.entities.EmptyLine
+import net.tfj.scoreboardAPI.entities.ScoreboardData
+import net.tfj.scoreboardAPI.entities.StaticLineEntry
 import kotlin.math.roundToInt
 
 object ExampleScoreboard : ScoreboardData(

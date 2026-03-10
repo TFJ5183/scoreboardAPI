@@ -1,8 +1,8 @@
 package net.tfj.scoreboardAPI
 
 import net.kyori.adventure.text.minimessage.MiniMessage
-import net.verix.main.custom.scoreboard.entities.LineBaseEntry
-import net.verix.main.custom.scoreboard.entities.ScoreboardData
+import net.tfj.scoreboardAPI.entities.LineBaseEntry
+import net.tfj.scoreboardAPI.entities.ScoreboardData
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
@@ -21,9 +21,13 @@ class ScoreboardAPI(
 
     // Variables
     private var map: HashMap<UUID, ScoreboardData> = hashMapOf()
+    companion object {
+        lateinit var instance: ScoreboardAPI
+    }
 
     // On class init
     init {
+        Companion.instance = this
         startUpdater()
     }
 
