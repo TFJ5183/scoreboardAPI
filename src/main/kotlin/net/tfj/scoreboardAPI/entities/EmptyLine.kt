@@ -3,7 +3,9 @@ package net.tfj.scoreboardAPI.entities
 import net.kyori.adventure.text.Component
 import org.bukkit.entity.Player
 
-// Line: Empty
+/**
+ * Empty line
+ */
 object EmptyLine : LineBaseEntry() {
     // Returns empty component
     override fun getText(player: Player): Component = Component.empty()

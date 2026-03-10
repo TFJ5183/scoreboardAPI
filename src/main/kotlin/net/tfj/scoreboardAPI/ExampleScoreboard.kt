@@ -10,6 +10,8 @@ import net.tfj.scoreboardAPI.entities.ScoreboardData
 import net.tfj.scoreboardAPI.entities.StaticLineEntry
 import kotlin.math.roundToInt
 
+// Example scoreboard for demonstrating the possibilities of this API
+// This can be ignored
 object ExampleScoreboard : ScoreboardData(
     "example",
     "<aqua><bold>Scoreboard</bold></aqua> API",

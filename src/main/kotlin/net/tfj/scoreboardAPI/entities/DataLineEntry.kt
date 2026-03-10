@@ -4,7 +4,10 @@ import net.kyori.adventure.text.Component
 import net.tfj.scoreboardAPI.ScoreboardAPI
 import org.bukkit.entity.Player
 
-// Line: containing data
+/**
+ * Data line entry. Display data that updates every [interval] ticks
+ * @since 1.0
+ */
 data class DataLineEntry(val provider: (Player) -> String, val interval: Int) : LineBaseEntry() {
     // Returns the data text
     override fun getText(player: Player): Component = ScoreboardAPI.instance.miniMessage.deserialize(provider(player))

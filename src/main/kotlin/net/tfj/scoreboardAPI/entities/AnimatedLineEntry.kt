@@ -4,7 +4,14 @@ import net.kyori.adventure.text.Component
 import net.tfj.scoreboardAPI.ScoreboardAPI
 import org.bukkit.entity.Player
 
-// Line: Animated
+/**
+ * Animated line entity. The frame switches every [interval] ticks
+ *
+ * @param frames list of string. Each line entry is a frame en
+ * @param interval amount of ticks
+ * @param updateInterval amount of ticks until the line should be updated. The counter will not be reset on frame change.
+ * @since 1.0
+ */
 data class AnimatedLineEntry(
     val frames: List<(Player) -> String>,
     val interval: Int,
@@ -18,6 +25,6 @@ data class AnimatedLineEntry(
         return ScoreboardAPI.instance.miniMessage.deserialize(frames[index.toInt()](player))
     }
 
-    // Updates when update interval reached
+    // Updates when interval reached
     override fun shouldUpdate(player: Player): Boolean = tick % updateInterval == 0L
 }

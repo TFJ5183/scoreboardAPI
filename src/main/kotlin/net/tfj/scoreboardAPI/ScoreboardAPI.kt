@@ -10,8 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scoreboard.Criteria
 import org.bukkit.scoreboard.DisplaySlot
 import org.bukkit.scoreboard.Scoreboard
-import java.util.HashMap
-import java.util.UUID
+import java.util.*
 
 class ScoreboardAPI(
     val instance: JavaPlugin,
@@ -21,6 +20,7 @@ class ScoreboardAPI(
 
     // Variables
     private var map: HashMap<UUID, ScoreboardData> = hashMapOf()
+
     companion object {
         lateinit var instance: ScoreboardAPI
     }
@@ -31,15 +31,33 @@ class ScoreboardAPI(
         startUpdater()
     }
 
-    // Resets player scoreboard
+    /**
+     * Sets default scoreboard for [player]
+     * @param player the player that should be reset
+     * @since 1.0
+     */
     fun resetScoreboard(player: Player) {
         setScoreboard(player, defaultBoard)
     }
 
-    // Sets player scoreboard
+    /**
+     * Sets scoreboard for specified [player]
+     * @param player the player that the scoreboard should be set
+     * @param scoreboardData data entity containing the data about the scoreboard
+     * @since 1.0
+     */
     fun setScoreboard(player: Player, scoreboardData: ScoreboardData) {
         map[player.uniqueId] = scoreboardData
         player.scoreboard = createScoreboard(player, scoreboardData)
+    }
+
+    /**
+     * Gets [ScoreboardData]
+     * @return possibly null [ScoreboardData] entity.
+     * @since 1.0
+     */
+    fun getScoreboard(player: Player): ScoreboardData? {
+        return map[player.uniqueId]
     }
 
     // Creates new scoreboard
@@ -59,7 +77,12 @@ class ScoreboardAPI(
         return board
     }
 
-    // Applies data to scoreboard
+    /**
+     * Applies [data] to specified [scoreboard] for specified [player]
+     * @param player is required for data frames
+     * @param forceUpdate if everything should be updated regardless of the update frame
+     * @since 1.0
+     */
     private fun applyData(player: Player, scoreboard: Scoreboard, data: ScoreboardData, forceUpdate: Boolean = false) {
         val objective = scoreboard.getObjective(DisplaySlot.SIDEBAR) ?: return
 
@@ -108,12 +131,20 @@ class ScoreboardAPI(
         }
     }
 
-    // Translates index to unique string
-    private fun translate(i: Int): String {
-        return "§" + i.toString(16).chunked(1).joinToString("§")
+    /**
+     * Turns line number to invisible entry name
+     * @param line line number
+     * @return paragraph + number or single letter
+     * @since 1.0
+     */
+    private fun translate(line: Int): String {
+        return "§" + line.toString(16).chunked(1).joinToString("§")
     }
 
-    // Starts updater task
+    /**
+     * Starts internal updater
+     * @since 1.0
+     */
     private fun startUpdater() {
         object : BukkitRunnable() {
             override fun run() {
