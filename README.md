@@ -48,16 +48,26 @@ To create a scoreboard, you need to define a custom `ScoreboardData` class that 
 `net.tfj.scoreboardAPI.ScoreboardData`. This class should specify the lines and their behavior.
 
 ```kotlin
-class ExampleScoreboard : ScoreboardData() {
-    override fun getLines(player: Player): List<LineBaseEntry> {
-        return listOf(
-            StaticLineEntry("Welcome to My Server"),
-            DataLineEntry("Player count: {online}/{max}"),
-            EmptyLine(),
-            AnimatedLineEntry("Time remaining: {time}", tickInterval = 20)
-        )
-    }
-}
+object ReadMeScoreboard : ScoreboardData(
+    "readme",
+    "ReadMe <aqua><bold>Scoreboard</bold></aqua>",
+    NumberFormat.styled(Style.style(NamedTextColor.DARK_GRAY)),
+    listOf(
+        StaticLineEntry("Welcome to My Server"),
+        DataLineEntry("Player count: ${Bukkit.getOnlinePlayers().size}/${Bukkit.getMaxPlayers()}"),
+        EmptyLine(),
+        AnimatedLineEntry(
+            listOf(
+                { "0oo" },
+                { "o0o" },
+                { "oo0" },
+                { "o0o" },
+            ),
+            2,
+            100
+        ),
+    )
+)
 ```
 
 ### Customizing Line Entries
@@ -80,6 +90,15 @@ fun join(event: PlayerJoinEvent) {
     scoreboardAPI.setScoreboard(ExampleScoreboard)
 }
 ```
+
+## Version
+
+The project uses the following dependencies with the specified versions, all of which have been tested and confirmed to work:
+
+- Java: 21.0.9 (SAP-MASCHINE)
+- Kotlin: 2.3.20-RC3
+- Gradle: 8.8.0
+- Paper API: 1.21.11-R0.1-SNAPSHOT
 
 ## Contributing
 

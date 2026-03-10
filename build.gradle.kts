@@ -21,11 +21,17 @@ dependencies {
 // Java config
 java {
     withSourcesJar()
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
+        vendor.set(JvmVendorSpec.SAP)
+    }
 }
 
 // Kotlin config
 kotlin {
-    jvmToolchain(targetJavaVersion)
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
+    }
 }
 
 // Task: build
