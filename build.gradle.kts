@@ -8,7 +8,7 @@ plugins {
 
 // Config
 group = "net.tfj"
-version = "1.1.2"
+version = "1.1.3"
 val targetJavaVersion = 21
 
 // Dependencies
