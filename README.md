@@ -1,15 +1,16 @@
-# TFJ's Scoreboard API: A Scoreboard Management API for Kotlin Paper Plugins
+# TFJ's Scoreboard API
 
-[![](https://jitpack.io/v/TFJ2021/tfjs-scoreboardAPI.svg)](https://jitpack.io/#TFJ2021/tfjs-scoreboardAPI)
+[![](https://jitpack.io/v/TFJ5183/scoreboardAPI.svg)](https://jitpack.io/#TFJ5183/scoreboardAPI)
 
 ## Introduction
 
-Welcome to the world of Paper plugin development with `tfjs-scoreboardAPI`! This advanced scoreboard management API
+Welcome to the world of Paper plugin development with TFJS's `scoreboardAPI`! This advanced scoreboard management API
 allows you to create, manage, and customize scoreboards in your Minecraft servers with ease. Whether you're building a
 simple trivia game or an intricate team-based RPG, this library has got you covered.
 
 ## Key Features
 
+- **Java & Kotlin support**: Works out of the box with Java and Kotlin
 - **Dynamic Content**: Supports both static and dynamic line entries for flexible scoreboard updates.
 - **Mini-message Support**: Utilizes Mini-message syntax to enhance the appearance of your scoreboards
 - **Extensibility**: Easily extend and customize existing line types or create new ones.
@@ -34,11 +35,11 @@ dependencyResolutionManagement {
 
 ```
 dependencies {
-     implementation("com.github.TFJ2021:tfjs-scoreboardAPI:-SNAPSHOT")
+    implementation("com.github.TFJ5183:scoreboardAPI:{Tag}")
 }
 ```
 
-> For more details visit [JitPack Docs](https://jitpack.io/#TFJ2021/tfjs-scoreboardAPI)
+> For more details visit [JitPack Docs](https://jitpack.io/#TFJ5183/scoreboardAPI)
 
 ## Usage
 
@@ -103,7 +104,7 @@ The project uses the following dependencies with the specified versions, all of 
 ## Contributing
 
 Contributions to this project are welcome! If you find any issues or have ideas for new features, please open an issue
-on the [GitHub repository](https://github.com/your-repo/tfjs-scoreboardAPI).
+on the [GitHub repository](https://github.com/TFJ5183/scoreboardAPI).
 
 ## License
 

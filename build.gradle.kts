@@ -8,7 +8,7 @@ plugins {
 
 // Config
 group = "net.tfj"
-version = "1.0"
+version = "1.1"
 val targetJavaVersion = 21
 
 // Dependencies
@@ -17,13 +17,20 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 }
 
+// Repositories
+repositories {
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+    maven("https://repo.papermc.io/repository/maven-public/") {
+        name = "papermc-repo"
+    }
+}
 
 // Java config
 java {
     withSourcesJar()
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(targetJavaVersion))
-        vendor.set(JvmVendorSpec.SAP)
     }
 }
 
